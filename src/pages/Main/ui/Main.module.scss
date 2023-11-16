@@ -1,0 +1,99 @@
+.Main {
+  position: relative;
+  padding: 50px 50px 44px 50px;
+  background-color: #ffffff;
+  color: #76787d;
+  .header {
+    margin-bottom: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .logo {
+      font-family: MonseratBold, sans-serif;
+      font-size: 32px;
+      color: #e31f24;
+    }
+    .user {
+      font-family: MonseratRegular, sans-serif;
+      font-size: 16px;
+    }
+  }
+
+  .page_main {
+    background-color: #fdfdfd;
+    border-radius: 10px;
+    width: 100%;
+    height: 100vh;
+    box-shadow: 0px 0px 10px 0px rgba(118, 120, 125, 1);
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(118, 120, 125, 1);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(118, 120, 125, 1);
+    .side_bar {
+      padding: 27px 31px 27px 20px;
+      width: 296px;
+      height: 100%;
+      border-right: 2px solid #e0e0e0;
+      .title {
+        font-family: MonseratSemiBold, sans-serif;
+        font-size: 16px;
+        color: #333333;
+        margin-bottom: 14px;
+      }
+      .input_search {
+        width: 100%;
+        padding: 16px 16px 16px 24px;
+        border: 1px solid #e9ecef;
+        margin-bottom: 29px;
+        border-radius: 8px;
+        ::placeholder {
+          color: #76787d;
+          font-family: MonseratRegular, sans-serif;
+          font-size: 14px;
+          line-height: 17px;
+        }
+      }
+      .results_of_search {
+        .user_container {
+          width: 100%;
+          height: 70px;
+          border: 1px solid #e9ecef;
+          border-radius: 10px;
+          margin-bottom: 18px;
+          display: flex;
+          align-items: center;
+          box-shadow: 0px 0px 10px 0px rgba(118, 120, 125, 1);
+          -webkit-box-shadow: 0px 0px 10px 0px rgba(118, 120, 125, 1);
+          -moz-box-shadow: 0px 0px 10px 0px rgba(118, 120, 125, 1);
+          .image {
+            width: 70px;
+            height: 100%;
+            border-right: 1px solid #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            img {
+              width: 30px;
+              vertical-align: middle;
+            }
+          }
+          .info_user {
+            padding-left: 15px;
+            span {
+              font-size: 14px;
+              display: block;
+            }
+            span:first-child {
+              font-family: MonseratBold, sans-serif;
+              margin-bottom: 5px;
+              color: #333333;
+            }
+            span:last-child {
+              font-family: MonseratRegular, sans-serif;
+              color: #76787d;
+              line-height: 17px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

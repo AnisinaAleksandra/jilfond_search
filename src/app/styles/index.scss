@@ -1,0 +1,50 @@
+@import "reset";
+@import "variables/global";
+
+@font-face {
+  font-family: "MonseratRegular";
+  src: local("MonseratRegular"), url("../fonts/Montserrat-Regular.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "MonseratSemiBold";
+  src: local("MonseratSemiBold"), url("../fonts/Montserrat-SemiBold.ttf");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "MonseratBold";
+  src: local("MonseratBold"), url("../fonts/Montserrat-Bold.ttf");
+  font-weight: bold;
+  font-style: normal;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+}
+:root {
+  margin: 0;
+  padding: 0;
+  font-family: MonseratRegular, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+* {
+  padding: 0px;
+  margin: 0px;
+  border: none;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
