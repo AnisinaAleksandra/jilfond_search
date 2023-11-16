@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import image from "../../../assets/image.png";
 import style from "./Main.module.scss";
 import { Header } from "../../../widgets/Header";
@@ -127,6 +127,37 @@ const Main = () => {
     return filteredUsers;
   }
 
+  const userIds = [1, 2]; // IDs for the query parameter
+
+  useEffect(() => {
+    const fetchUsers = async () => {
+      try {
+        const params = new URLSearchParams();
+        if (searchTerm !== "") {
+          userIds.forEach((id) => params.append("id", String(id)));
+        }
+        const url: string =
+          searchTerm === ""
+            ? `https://jsonplaceholder.typicode.com/users`
+            : `https://jsonplaceholder.typicode.com/users?${params.toString()}`;
+        const response = await fetch(url, {
+          method: "GET",
+        });
+
+        if (!response.ok) {
+          throw new Error("Network response was not ok.");
+        }
+
+        const data = await response.json();
+        setSearchResults(data);
+      } catch (error) {
+        console.error("Error fetching users:", error);
+      }
+    };
+
+    fetchUsers();
+  }, [searchTerm]);
+
   return (
     <div className={style.Main}>
       <Header />
@@ -153,8 +184,8 @@ const Main = () => {
                     <img src={image} alt="empty_image" />
                   </div>
                   <div className={style.info_user}>
-                    <span>{user.name}</span>
-                    <span>{user.email}</span>
+                    <div>{user.name}</div>
+                    <div>{user.email}</div>
                   </div>
                 </div>
               ))
