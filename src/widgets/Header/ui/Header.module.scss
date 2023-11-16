@@ -1,0 +1,15 @@
+.header {
+  margin-bottom: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .logo {
+    font-family: MonseratBold, sans-serif;
+    font-size: 32px;
+    color: #e31f24;
+  }
+  .user {
+    font-family: MonseratRegular, sans-serif;
+    font-size: 16px;
+  }
+}

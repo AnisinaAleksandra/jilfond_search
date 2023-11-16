@@ -3,23 +3,9 @@
   padding: 50px 50px 44px 50px;
   background-color: #ffffff;
   color: #76787d;
-  .header {
-    margin-bottom: 26px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    .logo {
-      font-family: MonseratBold, sans-serif;
-      font-size: 32px;
-      color: #e31f24;
-    }
-    .user {
-      font-family: MonseratRegular, sans-serif;
-      font-size: 16px;
-    }
-  }
 
   .page_main {
+    display: flex;
     background-color: #fdfdfd;
     border-radius: 10px;
     width: 100%;
@@ -92,6 +78,46 @@
               line-height: 17px;
             }
           }
+        }
+      }
+    }
+    .main_part {
+      padding: 30px 30px 30px 21px;
+      display: flex;
+      .image_empty {
+        width: 424px;
+        height: 286px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #e0e0e0;
+        margin-right: 61px;
+      }
+      .user_info {
+        .field_info {
+          font-family: MonseratSemiBold, sans-serif;
+          font-size: 14px;
+          margin-bottom: 10px;
+          color: #333333;
+          span {
+            color: #76787d;
+            font-family: MonseratRegular, sans-serif;
+          }
+          &:first-child {
+            color: #000000;
+            font-size: 16px;
+          }
+          &:last-child {
+            color: #76787d;
+            font-family: MonseratRegular, sans-serif;
+          }
+        }
+        .field_info_title {
+          font-family: MonseratSemiBold, sans-serif;
+          font-size: 16px;
+          color: #333333;
+          margin-top: 20px;
+          margin-bottom: 25px;
         }
       }
     }

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import image from "../../../assets/image.png";
 import style from "./Main.module.scss";
+import { Header } from "../../../widgets/Header";
 
 interface User {
   id: number;
@@ -75,16 +76,19 @@ const Main = () => {
       },
     },
   ];
-
+  const [userSelected, setUserSelected] = useState<User | null>(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState<User[]>([]);
+  console.log(userSelected);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const searchTerm = event.target.value;
     setSearchTerm(searchTerm);
     setSearchResults(searchUsers(searchTerm));
   };
-
+  const selectHandle = (user: User) => {
+    setUserSelected(user);
+  };
   function searchUsers(searchQuery: string): User[] {
     const searchTerm = searchQuery.toLowerCase();
     let filteredUsers: User[] = [];
@@ -94,7 +98,6 @@ const Main = () => {
     if (searchTermArr.length > 1) {
       for (let i = 0; i < searchTermArr.length; i++) {
         const el = searchTermArr[i];
-
         const filteredUser: User[] = users.filter((user) => {
           return (
             user.id.toString() === el ||
@@ -126,10 +129,7 @@ const Main = () => {
 
   return (
     <div className={style.Main}>
-      <div className={style.header}>
-        <div className={style.logo}>Жилфонд</div>
-        <div className={style.user}>Пользователь</div>
-      </div>
+      <Header />
       <div className={style.page_main}>
         <div className={style.side_bar}>
           <div className={style.title}>Поиск сотрудников</div>
@@ -144,7 +144,11 @@ const Main = () => {
           <div className={style.results_of_search}>
             {searchResults.length ? (
               searchResults.map((user) => (
-                <div className={style.user_container} key={user.id}>
+                <div
+                  className={style.user_container}
+                  key={user.id}
+                  onClick={() => selectHandle(user)}
+                >
                   <div className={style.image}>
                     <img src={image} alt="empty_image" />
                   </div>
@@ -159,7 +163,30 @@ const Main = () => {
             )}
           </div>
         </div>
-        <div className={style.main_part}></div>
+        <div className={style.main_part}>
+          {userSelected ? (
+            <>
+              <div className={style.image_empty}>
+                <img src={image} alt="empty_image" />
+              </div>
+              <div className={style.user_info}>
+                <div className={style.field_info}>{userSelected.name}</div>
+                <div className={style.field_info}>
+                  email: <span> {userSelected.email}</span>
+                </div>
+                <div className={style.field_info}>
+                  phone: <span> {userSelected.phone}</span>
+                </div>
+                <div className={style.field_info_title}>О себе</div>
+                <div className={style.field_info}>
+                  {userSelected.company.catchPhrase}
+                </div>
+              </div>
+            </>
+          ) : (
+            <div>Выберите сотрудника, чтобы посмотреть его профиль</div>
+          )}
+        </div>
       </div>
     </div>
   );
